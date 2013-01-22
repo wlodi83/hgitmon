@@ -1,0 +1,8 @@
+<div id="columns">
+  <% @girls.each do |girl| %>
+    <div class="pin"><%= link_to image_tag(girl.image.url(:medium)), girl_path(girl) %>
+    <p><strong><%= girl.title %></strong></p>
+    <p><%= girl.description %></p>
+    </div>
+  <% end %>
+</div>
