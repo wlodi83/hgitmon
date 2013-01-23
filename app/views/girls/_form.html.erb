@@ -1,4 +1,5 @@
 <%= form_for @girl, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= render 'layouts/errors', object: @girl %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -17,8 +18,11 @@
       <%= f.file_field :image %>
     </div>
   </div>
-
+  
   <div class="form-actions">
+    <% if user_signed_in? %>
+    <%= recaptcha_tags %> <br />
+    <% end %>
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 girls_path, :class => 'btn' %>

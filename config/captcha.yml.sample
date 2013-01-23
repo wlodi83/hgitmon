@@ -1,0 +1,12 @@
+defaults: &defaults
+  public_key:
+  private_key:
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

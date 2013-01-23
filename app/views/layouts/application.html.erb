@@ -47,9 +47,11 @@
           <%= link_to "Hot Girls In The Middle Of Nowhere", root_url, :class => "brand" %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <% if current_admin %>
+              <% if current_user %>
                 <li><%= link_to "Add Girl", new_girl_path %></li>
-                <li><%= link_to "Admin Girls", admin_girls_path %></li> 
+              <% elsif current_admin %>
+                <li><%= link_to "Add Girl", new_girl_path %></li>
+                <li><%= link_to "Admin Girls", admin_girls_path %></li>
               <% end -%>
                 <%= render 'layouts/menu/login_items' %>
                 <%= render 'layouts/menu/registration_items' %>

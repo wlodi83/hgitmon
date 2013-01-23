@@ -1,7 +1,7 @@
 class GirlsController < ApplicationController
-  before_filter :check_admin_logged_in!, :except => [:show, :index]
-  before_filter :check_user_logged_in!, :only => [:show]
-  
+  before_filter :check_admin_logged_in!, :except => [:show, :index, :create, :new, :update, :edit]
+  before_filter :check_user_logged_in!, :only => [:show, :create, :new, :update, :edit]
+ 
   def admin
     @girls = Girl.all
   end
@@ -20,10 +20,19 @@ class GirlsController < ApplicationController
 
   def create
     @girl = Girl.create(params[:girl])
-    if @girl.save
-      redirect_to girl_path(@girl)
+    if current_user
+      if verify_recaptcha(:model => @girl, :message=>"Verification code is wrong", :attribute=>"verification code") && @girl.save
+        redirect_to girl_path(@girl)
+      else
+        flash.delete(:recaptcha_error)
+        render :action => 'new'
+      end
     else
-      render :action => 'new'
+      if @girl.save
+        redirect_to girl_path(@girl)
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -33,10 +42,19 @@ class GirlsController < ApplicationController
 
   def update
     @girl = Girl.find(params[:id])
-    if @girl.update_attributes(params[:girl])
-      redirect_to girl_path(@girl) 
+    if current_user
+      if verify_recaptcha(:model => @girl, :message=>"Verification code is wrong", :attribute=>"verification code") && @girl.update_attributes(params[:girl])
+        redirect_to girl_path(@girl)
+      else
+        flash.delete(:recaptcha_error)
+        render :action => 'edit'
+      end
     else
-      render :action => 'edit'
+      if @girl.update_attributes(params[:girl])
+        redirect_to girl_path(@girl) 
+      else
+        render :action => 'edit'
+      end
     end
   end
 

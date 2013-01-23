@@ -1,0 +1,12 @@
+defaults: &defaults
+  public_key: 6LdX9tsSAAAAANU6V80Yd5pPnquu4xkx_dzZjj55
+  private_key: 6LdX9tsSAAAAACNTaXxIZ070KgZZ8UwAdX48M9XB
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
