@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20130122221155) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.boolean  "admin"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
