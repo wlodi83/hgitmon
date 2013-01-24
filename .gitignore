@@ -16,6 +16,7 @@
 
 /config/facebook.yml
 /config/email.yml
+/config/captcha.yml
 
 /public/system/*
 /public/assets/*

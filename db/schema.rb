@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122221155) do
+ActiveRecord::Schema.define(:version => 20130123205919) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20130122221155) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "girls", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130122221155) do
     t.string   "title"
     t.text     "description"
     t.string   "slug"
+    t.boolean  "published",          :default => false
   end
 
   add_index "girls", ["slug"], :name => "index_girls_on_slug", :unique => true

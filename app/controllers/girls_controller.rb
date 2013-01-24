@@ -5,9 +5,13 @@ class GirlsController < ApplicationController
   def admin
     @girls = Girl.all
   end
+
+  def publish
+    @girls = Girl.not_published
+  end
  
   def index
-    @girls = Girl.all
+    @girls = Girl.published
   end
 
   def new
@@ -60,7 +64,7 @@ class GirlsController < ApplicationController
 
   def destroy
     Girl.find(params[:id]).destroy
-    redirect_to girls_path
+    redirect_to admin_girls_path
   end
 
   private

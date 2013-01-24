@@ -18,6 +18,14 @@
       <%= f.file_field :image %>
     </div>
   </div>
+  <% if admin_signed_in? %>
+  <div class="control-group">
+    <%= f.label :published, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :published %>
+    </div>
+  </div>
+  <% end -%>
   
   <div class="form-actions">
     <% if user_signed_in? %>

@@ -7,6 +7,7 @@ Demo::Application.routes.draw do
   resources :girls do
     collection do
       get 'admin'
+      get 'publish'
     end
   end
   root :to => "girls#index"

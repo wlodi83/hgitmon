@@ -52,6 +52,7 @@
               <% elsif current_admin %>
                 <li><%= link_to "Add Girl", new_girl_path %></li>
                 <li><%= link_to "Admin Girls", admin_girls_path %></li>
+                <li><%= link_to "Waiting-Room", publish_girls_path %></li>
               <% end -%>
                 <%= render 'layouts/menu/login_items' %>
                 <%= render 'layouts/menu/registration_items' %>
