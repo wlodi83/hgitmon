@@ -9,9 +9,10 @@ Demo::Application.routes.draw do
       get 'admin'
       get 'publish'
     end
+    resources :comments
   end
   root :to => "girls#index"
-
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

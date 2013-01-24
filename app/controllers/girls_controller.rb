@@ -9,7 +9,7 @@ class GirlsController < ApplicationController
   def publish
     @girls = Girl.not_published
   end
- 
+
   def index
     @girls = Girl.published
   end

@@ -16,7 +16,8 @@ gem 'execjs'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id', '~> 4.0.9'
-gem "recaptcha", :require => "recaptcha/rails"
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'acts_as_commentable_with_threading'
 
 # Gems used only for assets and not required
 # in production environments by default.
