@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -16,7 +16,7 @@ gem 'execjs'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id', '~> 4.0.9'
-gem "recaptcha", :require => "recaptcha/rails"
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

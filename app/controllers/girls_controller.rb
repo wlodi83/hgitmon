@@ -11,7 +11,7 @@ class GirlsController < ApplicationController
   end
  
   def index
-    @girls = Girl.published
+    @girls = Girl.published.limit(100)
   end
 
   def new
